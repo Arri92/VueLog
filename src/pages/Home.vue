@@ -1,7 +1,10 @@
 
 <template>
 <v-card  
-     class="mx-auto mt-15 pa-10" elevation="2" outlined max-width="450">
+     class="mx-auto mt-15 pa-10" 
+     elevation="2" 
+     outlined 
+     max-width="450">
 <div class="">
   <div class=" mx-auto ">
     <v-text-field
@@ -16,7 +19,7 @@
      placeholder="Hasło"
      outlined
      clearable
-     v-model="userPass"
+     v-model="userPassword"
      :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
      :type="showPassword ? 'text' : 'password'"
      @click:append="showPassword = !showPassword"/>  
@@ -39,21 +42,21 @@ import {mapActions} from "vuex";
 export default {
   name: 'Home',
   data: () => ({
-     usersPass: '',
+     usersPassword: '',
      usersName: '',
      showPassword: false,
     }
   ),
   mounted(){
     this.usersName = this.$store.getters.getUsersName
-    this.usersPass = this.$store.getters.getUsersPass
+    this.usersPassword = this.$store.getters.getUsersPassword 
   },
   methods: {
     ...mapActions([
        'setLogged'
      ]),
      login(){
-      if(this.userName===this.usersName && this.userPass===this.usersPass){
+      if(this.userName===this.usersName && this.userPassword === this.usersPassword ){
         this.setLogged(this.userName)
         this.$router.push("/loginaccepted")
       }else{

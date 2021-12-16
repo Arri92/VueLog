@@ -25,21 +25,10 @@
 
 <script>
 import {mapGetters} from "vuex";
-import {mapActions} from "vuex";
 
 export default {
-  out(){
-        this.userName = ""
-        this.setLogout(this.userName)
-        this.$router.push("/")
-      },
-  
   name: 'Loginaccepted',
-  methods: {
-     ...mapActions([
-       'setLogout'
-     ]),
-  },
+  
   computed: {
     ...mapGetters([
       'getUsersName',
